@@ -993,6 +993,175 @@ hpsPFTauDiscriminationByMVA6VTightElectronRejection.mapping[13].cut = cms.double
 hpsPFTauDiscriminationByMVA6VTightElectronRejection.mapping[14].cut = cms.double(0.969)
 hpsPFTauDiscriminationByMVA6VTightElectronRejection.mapping[15].cut = cms.double(0.977)
 
+hpsPFTauDiscriminationByMVA7rawElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA5GBR.clone(
+    PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+    Prediscriminants = requireDecayMode.clone(),
+    method = cms.string("BDTG"),
+    gbrFile = cms.FileInPath('RecoTauTag/RecoTau/data/gbrDiscriminationAgainstElectronMVA7.root'),
+)
+
+hpsPFTauDiscriminationByMVA7VLooseElectronRejection = recoTauDiscriminantCutMultiplexer.clone(
+    PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+    Prediscriminants = requireDecayMode.clone(),
+    toMultiplex = cms.InputTag('hpsPFTauDiscriminationByMVA7rawElectronRejection'),
+    key = cms.InputTag('hpsPFTauDiscriminationByMVA7rawElectronRejection:category'),
+    inputFileName = cms.FileInPath('RecoTauTag/RecoTau/data/wpDiscriminationAgainstElectronMVA7.root'),
+    mapping = cms.VPSet(
+        cms.PSet(
+            category = cms.uint32(0), # minMVANoEleMatchWOgWOgsfBL
+            cut = cms.string("eff99cat0"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(1), # minMVANoEleMatchWOgWgsfBL
+            cut = cms.string("eff99cat1"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(2), # minMVANoEleMatchWgWOgsfBL
+            cut = cms.string("eff99cat2"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(3), # minMVANoEleMatchWgWgsfBL
+            cut = cms.string("eff99cat3"),
+            variable = cms.string("pt")
+        ),
+         cms.PSet(
+            category = cms.uint32(4), # minMVAWOgWOgsfBL
+            cut = cms.string("eff99cat4"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(5), # minMVAWOgWgsfBL
+            cut = cms.string("eff99cat5"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(6), # minMVAWgWOgsfBL
+            cut = cms.string("eff99cat6"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(7), # minMVAWgWgsfBL
+            cut = cms.string("eff99cat7"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(8), # minMVANoEleMatchWOgWOgsfEC
+            cut = cms.string("eff99cat8"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(9), # minMVANoEleMatchWOgWgsfEC
+            cut = cms.string("eff99cat9"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(10), # minMVANoEleMatchWgWOgsfEC
+            cut = cms.string("eff99cat10"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(11), # minMVANoEleMatchWgWgsfEC
+            cut = cms.string("eff99cat11"),
+            variable = cms.string("pt")
+        ),
+         cms.PSet(
+            category = cms.uint32(12), # minMVAWOgWOgsfEC
+            cut = cms.string("eff99cat12"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(13), # minMVAWOgWgsfEC
+            cut = cms.string("eff99cat13"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(14), # minMVAWgWOgsfEC
+            cut = cms.string("eff99cat14"),
+            variable = cms.string("pt")
+        ),
+        cms.PSet(
+            category = cms.uint32(15), # minMVAWgWgsfEC
+            cut = cms.string("eff99cat15"),
+            variable = cms.string("pt")
+        )
+    )
+)
+
+hpsPFTauDiscriminationByMVA7LooseElectronRejection = copy.deepcopy(hpsPFTauDiscriminationByMVA7VLooseElectronRejection)
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[0].cut = cms.string("eff96cat0")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[1].cut = cms.string("eff96cat1")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[2].cut = cms.string("eff96cat2")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[3].cut = cms.string("eff96cat3")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[4].cut = cms.string("eff96cat4")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[5].cut = cms.string("eff96cat5")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[6].cut = cms.string("eff96cat6")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[7].cut = cms.string("eff96cat7")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[8].cut = cms.string("eff96cat8")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[9].cut = cms.string("eff96cat9")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[10].cut = cms.string("eff96cat10")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[11].cut = cms.string("eff96cat11")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[12].cut = cms.string("eff96cat12")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[13].cut = cms.string("eff96cat13")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[14].cut = cms.string("eff96cat14")
+hpsPFTauDiscriminationByMVA7LooseElectronRejection.mapping[15].cut = cms.string("eff96cat15")
+
+hpsPFTauDiscriminationByMVA7MediumElectronRejection = copy.deepcopy(hpsPFTauDiscriminationByMVA7VLooseElectronRejection)
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[0].cut = cms.string("eff91cat0")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[1].cut = cms.string("eff91cat1")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[2].cut = cms.string("eff91cat2")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[3].cut = cms.string("eff91cat3")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[4].cut = cms.string("eff91cat4")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[5].cut = cms.string("eff91cat5")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[6].cut = cms.string("eff91cat6")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[7].cut = cms.string("eff91cat7")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[8].cut = cms.string("eff91cat8")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[9].cut = cms.string("eff91cat9")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[10].cut = cms.string("eff91cat10")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[11].cut = cms.string("eff91cat11")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[12].cut = cms.string("eff91cat12")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[13].cut = cms.string("eff91cat13")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[14].cut = cms.string("eff91cat14")
+hpsPFTauDiscriminationByMVA7MediumElectronRejection.mapping[15].cut = cms.string("eff91cat15")
+
+hpsPFTauDiscriminationByMVA7TightElectronRejection = copy.deepcopy(hpsPFTauDiscriminationByMVA7VLooseElectronRejection)
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[0].cut = cms.string("eff85cat0")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[1].cut = cms.string("eff85cat1")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[2].cut = cms.string("eff85cat2")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[3].cut = cms.string("eff85cat3")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[4].cut = cms.string("eff85cat4")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[5].cut = cms.string("eff85cat5")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[6].cut = cms.string("eff85cat6")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[7].cut = cms.string("eff85cat7")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[8].cut = cms.string("eff85cat8")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[9].cut = cms.string("eff85cat9")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[10].cut = cms.string("eff85cat10")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[11].cut = cms.string("eff85cat11")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[12].cut = cms.string("eff85cat12")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[13].cut = cms.string("eff85cat13")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[14].cut = cms.string("eff85cat14")
+hpsPFTauDiscriminationByMVA7TightElectronRejection.mapping[15].cut = cms.string("eff85cat15")
+
+hpsPFTauDiscriminationByMVA7VTightElectronRejection = copy.deepcopy(hpsPFTauDiscriminationByMVA7VLooseElectronRejection)
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[0].cut = cms.string("eff79cat0")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[1].cut = cms.string("eff79cat1")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[2].cut = cms.string("eff79cat2")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[3].cut = cms.string("eff79cat3")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[4].cut = cms.string("eff79cat4")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[5].cut = cms.string("eff79cat5")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[6].cut = cms.string("eff79cat6")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[7].cut = cms.string("eff79cat7")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[8].cut = cms.string("eff79cat8")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[9].cut = cms.string("eff79cat9")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[10].cut = cms.string("eff79cat10")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[11].cut = cms.string("eff79cat11")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[12].cut = cms.string("eff79cat12")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[13].cut = cms.string("eff79cat13")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[14].cut = cms.string("eff79cat14")
+hpsPFTauDiscriminationByMVA7VTightElectronRejection.mapping[15].cut = cms.string("eff79cat15")
+
 hpsPFTauDiscriminationByDeadECALElectronRejection = pfRecoTauDiscriminationAgainstElectronDeadECAL.clone(
     PFTauProducer = cms.InputTag('hpsPFTauProducer'),
     Prediscriminants = requireDecayMode.clone()
@@ -1343,6 +1512,12 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     hpsPFTauDiscriminationByMVA6MediumElectronRejection*
     hpsPFTauDiscriminationByMVA6TightElectronRejection*
     hpsPFTauDiscriminationByMVA6VTightElectronRejection*
+    hpsPFTauDiscriminationByMVA7rawElectronRejection*
+    hpsPFTauDiscriminationByMVA7VLooseElectronRejection*
+    hpsPFTauDiscriminationByMVA7LooseElectronRejection*
+    hpsPFTauDiscriminationByMVA7MediumElectronRejection*
+    hpsPFTauDiscriminationByMVA7TightElectronRejection*
+    hpsPFTauDiscriminationByMVA7VTightElectronRejection*
     hpsPFTauDiscriminationByDeadECALElectronRejection*
     hpsPFTauDiscriminationByLooseMuonRejection*
     hpsPFTauDiscriminationByMediumMuonRejection*
