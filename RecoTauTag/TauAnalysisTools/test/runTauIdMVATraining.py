@@ -2,12 +2,12 @@
 
 import os
 
-version = 'tauId_v1_13'
+version = 'tauId_v1_14'
 
 inputFilePath  = "/data2/veelken/CMSSW_5_3_x/Ntuples/tauIdMVATraining/%s/" % version
 inputFilePath += "user/veelken/CMSSW_5_3_x/Ntuples/tauIdMVATraining/%s/" % version
 
-outputFilePath = "/data1/veelken/tmp/tauIdMVATraining/%s_5/" % version
+outputFilePath = "/data1/veelken/tmp/tauIdMVATraining/%s_1/" % version
 
 preselection_oldDMs = \
     'decayModeFindingNewDMs > 0.5' \
