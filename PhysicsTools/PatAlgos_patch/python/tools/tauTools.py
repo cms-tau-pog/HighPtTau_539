@@ -196,6 +196,7 @@ tancTauIDSources = [
 hpsTauIDSources = [
     ("decayModeFindingNewDMs", "DiscriminationByDecayModeFindingNewDMs"),
     ("decayModeFindingOldDMs", "DiscriminationByDecayModeFindingOldDMs"),
+    ("decayModeFinding", "DiscriminationByDecayModeFinding"), # CV: kept for backwards compatibility
     ("byLooseIsolation", "DiscriminationByLooseIsolation"),
     ("byVLooseCombinedIsolationDeltaBetaCorr", "DiscriminationByVLooseCombinedIsolationDBSumPtCorr"),
     ("byLooseCombinedIsolationDeltaBetaCorr", "DiscriminationByLooseCombinedIsolationDBSumPtCorr"),
