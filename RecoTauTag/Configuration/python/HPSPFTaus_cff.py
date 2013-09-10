@@ -38,6 +38,7 @@ hpsPFTauDiscriminationByDecayModeFindingOldDMs = hpsSelectionDiscriminator.clone
     ),
     requireTauChargedHadronsToBeChargedPFCands = cms.bool(True)
 )
+hpsPFTauDiscriminationByDecayModeFinding = hpsPFTauDiscriminationByDecayModeFindingOldDMs.clone() # CV: kept for backwards compatibility
 
 # Define decay mode prediscriminant
 requireDecayMode = cms.PSet(
@@ -825,6 +826,7 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     produceHPSPFTaus*
     hpsPFTauDiscriminationByDecayModeFindingNewDMs*
     hpsPFTauDiscriminationByDecayModeFindingOldDMs*
+    hpsPFTauDiscriminationByDecayModeFinding* # CV: kept for backwards compatibility
     hpsPFTauDiscriminationByChargedIsolationSeq*
     hpsPFTauDiscriminationByIsolationSeq*
     #hpsPFTauDiscriminationByIsolationSeqRhoCorr*
